@@ -89,7 +89,7 @@ Throughput = Número de Processos / Tempo Total de Execução.
 
 ### Comparação entre os algoritmos de prioridade preemptivo e não preemptivo
 
-Para a comparação entre os algoritmos de escalonamento por prioridade preemptivo e não preemptivo, considera-se o mesmo conjunto de processos utilizado nos exemplos anteriores:
+Para a comparação entre os algoritmos de escalonamento por prioridade preemptivo e não preemptivo, considera-se esse conjunto de processos:
 
 P1: chegada = 0, duração = 5, prioridade = 2  
 P2: chegada = 1, duração = 3, prioridade = 1  
