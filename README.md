@@ -95,7 +95,8 @@ P3: chegada = 2, duração = 2, prioridade = 3
 
 ### Execução no algoritmo preemptivo (linha do tempo):
 
-| Tempo: | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |  
+| Tempo: | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 
+|--------|---|---|---|---|---|---|---|---|---|
 | CPU: | P1 | P2 | P2 | P2 | P1 | P1 | P1 | P3 | P3 |  
 
 Essa visualização evidencia a interrupção do processo P1 quando o processo P2, de maior prioridade, chega ao sistema.
