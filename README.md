@@ -12,7 +12,7 @@ Foram implementados dois algoritmos distintos de escalonamento: prioridade preem
 
 Para a compilação dos programas é necessário possuir o compilador GCC (GNU Compiler Collection) instalado no sistema.
 
-A compilação do algoritmo de prioridade preemptivo é realizada com o comando:
+A compilação do algoritmo de prioridade preemptivo é realizada com o seguinte comando no prompt:
 
 gcc prioridade_preemptivo.c -o prioridade_preemptivo
 
