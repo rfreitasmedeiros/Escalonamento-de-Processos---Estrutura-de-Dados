@@ -87,22 +87,61 @@ Throughput = Número de Processos / Tempo Total de Execução.
 
 ## 8 - VISUALIZAÇÃO DE UM EXEMPLO DE EXECUÇÃO
 
-Considere os seguintes processos:
+### Comparação entre os algoritmos de prioridade preemptivo e não preemptivo
+
+Para a comparação entre os algoritmos de escalonamento por prioridade preemptivo e não preemptivo, considera-se o mesmo conjunto de processos utilizado nos exemplos anteriores:
 
 P1: chegada = 0, duração = 5, prioridade = 2  
 P2: chegada = 1, duração = 3, prioridade = 1  
 P3: chegada = 2, duração = 2, prioridade = 3  
 
-### Execução no algoritmo preemptivo (linha do tempo):
+Adota-se o critério de que **menor valor numérico indica maior prioridade**.
 
-| Tempo: | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 
-|--------|---|---|---|---|---|---|---|---|---|
-| CPU: | P1 | P2 | P2 | P2 | P1 | P1 | P1 | P3 | P3 |  
+---
 
-Essa visualização evidencia a interrupção do processo P1 quando o processo P2, de maior prioridade, chega ao sistema.
+#### Execução no algoritmo de prioridade não preemptivo
+
+No escalonamento não preemptivo, o processo selecionado executa até a sua finalização, independentemente da chegada de processos com maior prioridade.
+
+Linha do tempo da CPU:
+
+|Tempo:| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
+|------|---|---|---|---|---|---|---|---|---|
+|CPU:| P1 | P1 | P1 | P1 | P1 | P2 | P2 | P2 | P3 | P3 |  
+
+Nesse cenário, o processo P2, apesar de possuir maior prioridade, aguarda a finalização completa de P1 para ser executado.
+
+---
+
+#### Execução no algoritmo de prioridade preemptivo
+
+No escalonamento preemptivo, sempre que um processo com maior prioridade chega ao sistema, ocorre a interrupção (preempção) do processo em execução.
+
+Linha do tempo da CPU:
+
+|Tempo:| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
+|------|---|---|---|---|---|---|---|---|---|
+|CPU:| P1 | P2 | P2 | P2 | P1 | P1 | P1 | P1 | P3 | P3 |  
+
+No tempo 1, o processo P2 chega ao sistema com maior prioridade e preempta o processo P1. Após a conclusão de P2, o processo P1 retoma sua execução.
+
+---
+
+#### Análise comparativa
+
+A comparação entre os dois algoritmos evidencia diferenças significativas no comportamento do sistema:
+
+- **Tempo de resposta**: no algoritmo preemptivo, processos de alta prioridade possuem menor tempo de resposta, pois podem interromper a execução de outros processos.
+- **Tempo de espera**: o algoritmo não preemptivo pode aumentar o tempo de espera de processos prioritários, uma vez que não permite interrupções.
+- **Previsibilidade**: o algoritmo não preemptivo apresenta execução mais previsível e simples de implementar.
+- **Justiça**: o algoritmo preemptivo favorece processos de maior prioridade, podendo causar starvation em processos de baixa prioridade.
+
+Conclui-se que o algoritmo de prioridade preemptivo é mais adequado para sistemas que exigem rápida resposta a processos críticos, enquanto o não preemptivo é indicado para cenários onde a simplicidade e a previsibilidade são mais relevantes.
 
 ---
 
 ## 9 - CONSIDERAÇÕES FINAIS
 
 O simulador atende aos requisitos propostos, aplicando de forma prática estruturas de dados dinâmicas na implementação de algoritmos de escalonamento. A separação entre versões preemptiva e não preemptiva possibilita uma análise clara das diferenças entre os algoritmos, reforçando a importância da escolha adequada das estruturas de dados e das estratégias de escalonamento.
+
+---
