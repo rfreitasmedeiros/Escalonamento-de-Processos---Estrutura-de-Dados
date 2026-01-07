@@ -99,9 +99,12 @@ Throughput = Número de Processos / Tempo Total de Execução.
 
 Para a comparação entre os algoritmos de escalonamento por prioridade preemptivo e não preemptivo, considera-se esse conjunto de processos:
 
-|P1:| chegada = 0 | duração = 5 | prioridade = 2 |  
-|P2:| chegada = 1 | duração = 3 | prioridade = 1 | 
+|P1:| chegada = 0 | duração = 5 | prioridade = 2 |
+|---|-------------|-------------|----------------|
+|P2:| chegada = 1 | duração = 3 | prioridade = 1 |
+|---|-------------|-------------|----------------|
 |P3:| chegada = 2 | duração = 2 | prioridade = 3 |
+|---|-------------|-------------|----------------|
 
 Adota-se o critério de que **menor valor numérico indica maior prioridade**.
 
