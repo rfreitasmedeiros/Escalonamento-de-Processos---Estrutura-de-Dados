@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/* ---------- Estruturas ---------- */
 typedef struct {
     int id;
     int tempoChegada;
@@ -21,7 +20,6 @@ typedef struct {
     No *inicio;
 } Fila;
 
-/* ---------- Fila ---------- */
 Fila* criar_fila() {
     Fila *f = malloc(sizeof(Fila));
     f->inicio = NULL;
@@ -57,7 +55,6 @@ Processo* desenfileirar(Fila *f) {
     return p;
 }
 
-/* ---------- Métricas ---------- */
 void calcular_metricas(Fila *concluidos, int n, int tempo_total) {
     float wt = 0, tat = 0, rt = 0;
 
@@ -85,7 +82,6 @@ void calcular_metricas(Fila *concluidos, int n, int tempo_total) {
     printf("Throughput: %.2f\n", (float)n / tempo_total);
 }
 
-/* ---------- Main ---------- */
 int main() {
     printf("Algoritmo: PRIORIDADE PREEMPTIVO\n\n");
 
@@ -156,3 +152,4 @@ int main() {
     calcular_metricas(finalizados, n, tempo);
     return 0;
 }
+
