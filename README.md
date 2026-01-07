@@ -162,6 +162,6 @@ Conclui-se que o algoritmo de prioridade preemptivo é mais adequado para sistem
 
 ## 9 - CONSIDERAÇÕES FINAIS
 
-O simulador atende aos requisitos propostos, aplicando de forma prática estruturas de dados dinâmicas na implementação de algoritmos de escalonamento. A separação entre versões preemptiva e não preemptiva possibilita uma análise clara das diferenças entre os algoritmos, reforçando a importância da escolha adequada das estruturas de dados e das estratégias de escalonamento.
+Com este projeto, fomos capazes de usar os conteudos ensinados em sala de maneira prática, facilitando a resolução deste trabalho. O simulador cumpre com os requisitos requeridos pelo professor na disciplina de Estrutura de Dados
 
 ---
