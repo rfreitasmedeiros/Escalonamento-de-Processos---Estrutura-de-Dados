@@ -102,9 +102,7 @@ Para a comparação entre os algoritmos de escalonamento por prioridade preempti
 |P1:| chegada = 0 | duração = 5 | prioridade = 2 |
 |---|-------------|-------------|----------------|
 |P2:| chegada = 1 | duração = 3 | prioridade = 1 |
-|---|-------------|-------------|----------------|
 |P3:| chegada = 2 | duração = 2 | prioridade = 3 |
-|---|-------------|-------------|----------------|
 
 Adota-se o critério de que **menor valor numérico indica maior prioridade**.
 
