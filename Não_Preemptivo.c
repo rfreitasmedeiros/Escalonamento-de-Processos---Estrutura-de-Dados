@@ -57,11 +57,12 @@ Processo* desenfileirar(Fila *f) {
 void calcular_metricas(Fila *f, int n, int tempo_total) {
     float wt = 0, tat = 0, rt = 0;
 
-    printf("\nID | Termino | Turnaround | Waiting | Response\n");
-    printf("---------------------------------------------\n");
+    printf("\nID | Chegada | Duracao | Termino | Turnaround | Waiting | Response\n");
+    printf("-------------------------------------------------------------------\n");
 
     for (No *aux = f->inicio; aux; aux = aux->prox) {
         Processo *p = aux->processo;
+
         int turnaround = p->tempoTermino - p->tempoChegada;
         int waiting = turnaround - p->duracaoOriginal;
         int response = p->tempoPrimeiroAtendimento - p->tempoChegada;
@@ -70,8 +71,14 @@ void calcular_metricas(Fila *f, int n, int tempo_total) {
         tat += turnaround;
         rt += response;
 
-        printf("%2d | %7d | %10d | %7d | %8d\n",
-               p->id, p->tempoTermino, turnaround, waiting, response);
+        printf("%2d | %7d | %7d | %7d | %10d | %7d | %8d\n",
+               p->id,
+               p->tempoChegada,
+               p->duracaoOriginal,
+               p->tempoTermino,
+               turnaround,
+               waiting,
+               response);
     }
 
     printf("\nMedia WT: %.2f\n", wt / n);
@@ -143,4 +150,5 @@ int main() {
     calcular_metricas(finalizados, n, tempo);
     return 0;
 }
+
 
