@@ -20,6 +20,7 @@ typedef struct {
     No *inicio;
 } Fila;
 
+
 Fila* criar_fila() {
     Fila *f = malloc(sizeof(Fila));
     f->inicio = NULL;
@@ -54,6 +55,7 @@ Processo* desenfileirar(Fila *f) {
     free(aux);
     return p;
 }
+
 
 void calcular_metricas(Fila *concluidos, int n, int tempo_total) {
     float wt = 0, tat = 0, rt = 0;
@@ -96,13 +98,18 @@ int main() {
     Fila *prontos = criar_fila();
     Fila *finalizados = criar_fila();
 
+    Processo *executando = NULL;
+
     printf("Quantidade de processos: ");
     scanf("%d", &n);
 
     for (int i = 0; i < n; i++) {
         Processo *p = malloc(sizeof(Processo));
         printf("P%d (chegada duracao prioridade): ", i + 1);
-        scanf("%d %d %d", &p->tempoChegada, &p->duracaoOriginal, &p->prioridade);
+        scanf("%d %d %d",
+              &p->tempoChegada,
+              &p->duracaoOriginal,
+              &p->prioridade);
 
         p->id = i + 1;
         p->tempoRestante = p->duracaoOriginal;
@@ -115,13 +122,15 @@ int main() {
     }
 
     while (concluidos < n) {
-        No *ant = NULL, *atual = entrada->inicio;
 
+        No *ant = NULL, *atual = entrada->inicio;
         while (atual) {
             if (atual->processo->tempoChegada <= tempo) {
                 enfileirar_prioridade(prontos, atual->processo);
+
                 if (!ant) entrada->inicio = atual->prox;
                 else ant->prox = atual->prox;
+
                 No *rem = atual;
                 atual = atual->prox;
                 free(rem);
@@ -131,24 +140,33 @@ int main() {
             }
         }
 
-        if (prontos->inicio) {
-            Processo *p = prontos->inicio->processo;
+        if (executando && prontos->inicio &&
+            prontos->inicio->processo->prioridade < executando->prioridade) {
 
-            if (p->tempoPrimeiroAtendimento == -1)
-                p->tempoPrimeiroAtendimento = tempo;
+            enfileirar_prioridade(prontos, executando);
+            executando = desenfileirar(prontos);
+        }
 
-            p->tempoRestante--;
+        if (!executando && prontos->inicio)
+            executando = desenfileirar(prontos);
+
+        if (executando) {
+            if (executando->tempoPrimeiroAtendimento == -1)
+                executando->tempoPrimeiroAtendimento = tempo;
+
+            executando->tempoRestante--;
             tempo++;
 
-            if (p->tempoRestante == 0) {
-                p->tempoTermino = tempo;
+            if (executando->tempoRestante == 0) {
+                executando->tempoTermino = tempo;
                 concluidos++;
-                Processo *f = desenfileirar(prontos);
 
                 No *no = malloc(sizeof(No));
-                no->processo = f;
+                no->processo = executando;
                 no->prox = finalizados->inicio;
                 finalizados->inicio = no;
+
+                executando = NULL;
             }
         } else {
             tempo++;
@@ -158,5 +176,3 @@ int main() {
     calcular_metricas(finalizados, n, tempo);
     return 0;
 }
-
-
