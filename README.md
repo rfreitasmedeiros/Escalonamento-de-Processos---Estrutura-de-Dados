@@ -2,6 +2,11 @@
 
 ### INTEGRANTES: Fernando, Matheus, Rodrigo, Samuel
 
+### Tecnologias Usadas
+- Linguagem C
+- Compilador GCC
+- Visual Studio Code
+
 ## 1 - INTRODUÇÃO
 
 O presente trabalho tem como objetivo o desenvolvimento de um simulador de escalonamento de processos utilizando o critério de prioridade, implementado na linguagem C. O projeto foi elaborado no contexto da disciplina de Estrutura de Dados, com a finalidade de aplicar conceitos fundamentais como listas encadeadas, filas e alocação dinâmica de memória em um problema clássico da área de Sistemas Operacionais.
