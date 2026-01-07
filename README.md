@@ -14,19 +14,27 @@ Para a compilação dos programas é necessário possuir o compilador GCC (GNU C
 
 A compilação do algoritmo de prioridade preemptivo é realizada com o seguinte comando no prompt:
 
+'''
 gcc prioridade_preemptivo.c -o prioridade_preemptivo
+'''
 
 A execução ocorre por meio do comando:
 
+'''
 ./prioridade_preemptivo
+'''
 
 A compilação do algoritmo de prioridade não preemptivo é feita com:
 
+'''
 gcc prioridade_nao_preemptivo.c -o prioridade_nao_preemptivo
+'''
 
 E sua execução com:
 
+'''
 ./prioridade_nao_preemptivo
+'''
 
 Em ambos os casos, o simulador permite a inserção manual dos processos pelo usuário.
 
@@ -105,9 +113,11 @@ No escalonamento não preemptivo, o processo selecionado executa até a sua fina
 
 Linha do tempo da CPU:
 
+'''
 |Tempo:| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
 |------|---|---|---|---|---|---|---|---|---|
-|CPU:| P1 | P1 | P1 | P1 | P1 | P2 | P2 | P2 | P3 | P3 |  
+|CPU:| P1 | P1 | P1 | P1 | P1 | P2 | P2 | P2 | P3 | P3 | 
+'''
 
 Nesse cenário, o processo P2, apesar de possuir maior prioridade, aguarda a finalização completa de P1 para ser executado.
 
