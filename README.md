@@ -118,7 +118,9 @@ Linha do tempo da CPU:
 
 |Tempo:| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
 |------|---|---|---|---|---|---|---|---|---|
-|CPU:| P1 | P1 | P1 | P1 | P1 | P2 | P2 | P2 | P3 | P3 | 
+|CPU:| P1 | P1 | P1 | P1 | P1 | P2 | P2 | P2 | P3 | P3 |
+
+(imagens/naopreemptivo.png)
 
 Nesse cenário, o processo P2, apesar de possuir maior prioridade, aguarda a finalização completa de P1 para ser executado.
 
@@ -133,6 +135,8 @@ Linha do tempo da CPU:
 |Tempo:| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
 |------|---|---|---|---|---|---|---|---|---|
 |CPU:| P1 | P2 | P2 | P2 | P1 | P1 | P1 | P1 | P3 | P3 |  
+
+(imagens/preemptivo.png)
 
 No tempo 1, o processo P2 chega ao sistema com maior prioridade e preempta o processo P1. Após a conclusão de P2, o processo P1 retoma sua execução.
 
